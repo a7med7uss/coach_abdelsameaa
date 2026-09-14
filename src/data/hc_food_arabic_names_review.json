@@ -1,0 +1,8 @@
+{
+  "schemaVersion": "1.0",
+  "datasetName": "HC Arabic Food Names - Review Needed",
+  "language": "ar",
+  "sourceDatabase": "hc_food_database.json",
+  "lastUpdated": "2026-09-12",
+  "foods": []
+}
