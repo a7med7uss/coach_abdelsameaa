@@ -225,7 +225,7 @@ export const SaveImageModal: React.FC<SaveImageModalProps> = ({
               />
               <div>
                 <h1 className="text-lg font-bold text-slate-900 leading-tight">
-                  {t.appTitle}
+                  Coach {t.appTitle}
                 </h1>
               </div>
             </div>
@@ -363,7 +363,7 @@ export const SaveImageModal: React.FC<SaveImageModalProps> = ({
           </div>
 
           {/* Report Footer */}
-          <div className="mt-6 pt-4 border-t border-slate-200 text-[10px] text-slate-400 text-start">
+          <div className="mt-6 pt-4 border-t border-slate-200 text-[10px] text-slate-400 text-center">
             Coach Abdsameea Adel Elmalky - Clinical Nutrition Master's | Fitness Coach
           </div>
         </div>
