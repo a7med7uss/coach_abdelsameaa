@@ -27,14 +27,20 @@ export const Header: React.FC<HeaderProps> = ({
         <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
           <img
             src={LogoImg}
-            alt="كوتش عبدالسميع عادل المالكي"
+            alt="Coach Abdsameea Adel Elmalky"
             className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl object-cover shadow-sm border border-slate-200 dark:border-slate-700 shrink-0"
           />
           <div className="min-w-0">
-            <h1 className="text-base sm:text-lg md:text-xl font-bold text-slate-900 dark:text-white leading-tight truncate">
-              {t.appTitle}
-            </h1>
-          </div>
+  <h1 className="text-sm sm:text-lg md:text-xl font-bold text-slate-900 dark:text-white leading-tight">
+    {t.appTitle}
+  </h1>
+
+  {t.appSubtitle && (
+    <p className="text-[9px] sm:text-xs md:text-sm text-slate-500 dark:text-slate-400 leading-tight mt-0.5">
+      {t.appSubtitle}
+    </p>
+  )}
+</div>
         </div>
 
         {/* Action Controls: Lang & Theme Switchers */}
