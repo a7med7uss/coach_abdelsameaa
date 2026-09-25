@@ -2,7 +2,7 @@ import { Language } from '../types/health';
 
 export const translations = {
   ar: {
-    appTitle: 'كوتش عبدالسميع عادل المالكي',
+    appTitle: 'Abdsameea Adel Elmalky (Clinical Nutrition Master\'s | Fitness Coach)',
     appSubtitle: '',
     steps: {
       basicInfo: 'المعلومات الأساسية',
