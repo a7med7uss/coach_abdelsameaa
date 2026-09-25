@@ -212,7 +212,7 @@ export const SaveImageModal: React.FC<SaveImageModalProps> = ({
         >
           {/* Watermark */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.06] select-none font-bold text-3xl text-slate-900 rotate-[-25deg] text-center px-4">
-            {t.watermark}
+            Coach Abdsameea Adel Elmalky
           </div>
 
           {/* Header Branding */}
@@ -227,11 +227,6 @@ export const SaveImageModal: React.FC<SaveImageModalProps> = ({
                 <h1 className="text-lg font-bold text-slate-900 leading-tight">
                   {t.appTitle}
                 </h1>
-                <div className="mt-1 flex items-center gap-1.5 text-[11px] text-sky-800 font-medium">
-                  <span className="font-bold">{t.identity.name}</span>
-                  <span>•</span>
-                  <span>{t.identity.title}</span>
-                </div>
               </div>
             </div>
             <div className="text-end">
@@ -368,9 +363,8 @@ export const SaveImageModal: React.FC<SaveImageModalProps> = ({
           </div>
 
           {/* Report Footer */}
-          <div className="mt-6 pt-4 border-t border-slate-200 flex items-center justify-between text-[10px] text-slate-400">
-            <div>{t.appTitle}</div>
-            <div>{t.identity.name} — {t.identity.title}</div>
+          <div className="mt-6 pt-4 border-t border-slate-200 text-[10px] text-slate-400 text-start">
+            Coach Abdsameea Adel Elmalky - Clinical Nutrition Master's | Fitness Coach
           </div>
         </div>
       </div>
