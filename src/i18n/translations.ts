@@ -2,8 +2,8 @@ import { Language } from '../types/health';
 
 export const translations = {
   ar: {
-    appTitle: 'Abdsameea Adel Elmalky (Clinical Nutrition Master\'s | Fitness Coach)',
-    appSubtitle: '',
+    appTitle: 'Abdsameea Adel Elmalky',
+    appSubtitle: 'Clinical Nutrition Master\'s | Fitness Coach',
     steps: {
       basicInfo: 'المعلومات الأساسية',
       bodyMeasurements: 'قياسات الجسم',
