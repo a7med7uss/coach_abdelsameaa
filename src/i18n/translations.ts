@@ -158,10 +158,10 @@ export const translations = {
       macroExceeded: 'مجموع سعرات البروتين والدهون يتجاوز السعرات المستهدفة! يرجى تقليل القيم للمتابعة.',
     },
     identity: {
-      name: 'Abdelsameaa Adel Elmalky',
-      title: 'ماجستير تغذية علاجية | مدرب',
+      name: '',
+      title: '',
     },
-    watermark: 'Abdelsameaa Adel Elmalky',
+    watermark: 'Coach Abdsameea Adel Elmalky',
     foodReference: {
       button: 'دليل الأغذية',
       title: 'دليل القيمة الغذائية للأطعمة',
@@ -208,7 +208,7 @@ export const translations = {
     },
   },
   en: {
-    appTitle: 'كوتش عبدالسميع عادل المالكي',
+    appTitle: 'Coach Abdsameea Adel Elmalky',
     appSubtitle: '',
     steps: {
       basicInfo: 'Basic Information',
