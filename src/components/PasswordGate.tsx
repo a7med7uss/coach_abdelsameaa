@@ -109,17 +109,17 @@ export const PasswordGate: React.FC<PasswordGateProps> = ({ onSuccess }) => {
         <div className="flex justify-center mb-4">
           <img
             src={LogoImg}
-            alt="كوتش عبدالسميع عادل المالكي"
+            alt="Coach Abdsameea Adel Elmalky"
             className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl object-cover shadow-md border-2 border-emerald-500/20"
           />
         </div>
 
         {/* Brand Title */}
         <h1 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white leading-tight mb-2">
-          كوتش عبدالسميع عادل المالكي
+          Coach Abdsameea Adel Elmalky
         </h1>
         <p className="text-xs text-slate-500 dark:text-slate-400 mb-6">
-          يرجى إدخال رمز المرور لتسجيل الدخول إلى الحاسبة
+          Clinical Nutrition Master's | Fitness Coach
         </p>
 
         {remainingTime > 0 ? (
