@@ -42,13 +42,23 @@ export default async function handler(req, res) {
           : "Google Apps Script رجّع ردًا غير متوقع بدل JSON. راجع إتاحة تطبيق الويب لأي شخص، وتأكد أن doGet في النسخة المنشورة يرجع JSON."
       });
     } catch (error) {
-      console.error("Apps Script health request failed", error?.message || "unknown error");
+      const errorName = String(error?.name || "Error").slice(0, 80);
+      const errorMessage = String(error?.message || "unknown error").slice(0, 240);
+      const causeCode = String(error?.cause?.code || "").slice(0, 80);
+      console.error("Apps Script health request failed", {
+        errorName,
+        errorMessage,
+        causeCode
+      });
       return res.status(200).json({
         ok: false,
         service: "مسابقة بيس VX",
         registrationRoute: "ready",
         googleAppsScript: "network_error",
-        message: "وظيفة الموقع تعمل، لكن اتصال Google Apps Script فشل. افحص الرابط وصلاحية الوصول."
+        upstreamErrorName: errorName,
+        upstreamErrorMessage: errorMessage,
+        upstreamCauseCode: causeCode || null,
+        message: "وظيفة الموقع تعمل، لكن الاتصال بخدمة Google تعطل. تفاصيل الخطأ مرفقة للتشخيص."
       });
     }
   }
