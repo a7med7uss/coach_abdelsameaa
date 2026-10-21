@@ -1,11 +1,11 @@
 /**
  * التخزين المركزي لتسجيلات مسابقة بيس VX باستخدام Google Sheets.
- * الأعمدة بالترتيب: رقم التسجيل، وقت التسجيل، الاسم الثلاثي، رقم الهاتف.
+ * الأعمدة الوحيدة: الاسم الثلاثي، رقم الهاتف.
  */
 
 const SHEET_TITLE = "مسابقة بيس VX - التسجيلات";
 const SHEET_PROPERTY = "VX_REGISTRATION_SHEET_ID";
-const HEADERS = ["رقم التسجيل", "وقت التسجيل", "الاسم الثلاثي", "رقم الهاتف"];
+const HEADERS = ["الاسم الثلاثي", "رقم الهاتف"];
 
 function setupSheet() {
   const sheet = ensureSheet_();
@@ -44,33 +44,27 @@ function doPost(e) {
     const sheet = ensureSheet_();
     const lastRow = sheet.getLastRow();
 
-    // رقم الهاتف موجود في العمود الرابع حسب ترتيب الأعمدة الجديد.
+    // يمنع تكرار رقم الهاتف: رقم الهاتف هو العمود الثاني.
     if (lastRow > 1) {
       const existingRows = sheet.getRange(2, 1, lastRow - 1, HEADERS.length).getDisplayValues();
-      const duplicate = existingRows.find(row => normalizePhone_(row[3]) === phone);
+      const duplicate = existingRows.find(row => normalizePhone_(row[1]) === phone);
       if (duplicate) {
         return json_({
           ok: false,
           duplicate: true,
-          registeredName: duplicate[2],
+          registeredName: duplicate[0],
           message: "رقم الهاتف مسجل بالفعل."
         });
       }
     }
 
-    const now = new Date();
-    const id = "VX-" +
-      Utilities.formatDate(now, Session.getScriptTimeZone(), "yyyyMMdd-HHmmss") +
-      "-" + Math.floor(100 + Math.random() * 900);
-
     const rowNumber = sheet.getLastRow() + 1;
-    // الترتيب الجديد: رقم التسجيل، وقت التسجيل، الاسم الثلاثي، رقم الهاتف.
+    // لا نكتب أي أعمدة إضافية: الاسم الثلاثي ورقم الهاتف فقط.
     sheet.getRange(rowNumber, 1, 1, HEADERS.length)
-      .setValues([[id, now, fullName, phone]]);
-    sheet.getRange(rowNumber, 2).setNumberFormat("yyyy-mm-dd hh:mm:ss");
-    sheet.getRange(rowNumber, 4).setNumberFormat("@");
+      .setValues([[fullName, phone]]);
+    sheet.getRange(rowNumber, 2).setNumberFormat("@");
 
-    return json_({ ok: true, id: id, message: "تم تسجيل البيانات." });
+    return json_({ ok: true, message: "تم التسجيل بنجاح." });
   } catch (err) {
     console.error(err);
     return json_({ ok: false, message: "تعذر حفظ التسجيل." });
@@ -103,8 +97,8 @@ function ensureSheet_() {
   if (sheet.getLastRow() === 0) {
     sheet.getRange(1, 1, 1, HEADERS.length).setValues([HEADERS]);
   } else {
-    // لو الجدول موجود بالترتيب القديم، يعاد ترتيب الأعمدة تلقائيًا
-    // حسب اسم كل عمود مع الحفاظ على البيانات وحذف عمود "الحالة".
+    // عند تشغيل الكود على الشيت القديم، نحتفظ فقط بالاسم ورقم الهاتف.
+    // الأعمدة الأخرى مثل رقم التسجيل ووقت التسجيل والحالة تُحذف.
     const existingData = sheet.getDataRange().getValues();
     const existingHeaders = existingData[0].map(value => String(value).trim());
     const sameSchema =
@@ -127,6 +121,11 @@ function ensureSheet_() {
     }
   }
 
+  // اجعل الجدول نفسه مكوّنًا من عمودين فقط.
+  if (sheet.getMaxColumns() > HEADERS.length) {
+    sheet.deleteColumns(HEADERS.length + 1, sheet.getMaxColumns() - HEADERS.length);
+  }
+
   sheet.setFrozenRows(1);
   sheet.setRightToLeft(true);
   sheet.getRange(1, 1, 1, HEADERS.length)
@@ -135,13 +134,9 @@ function ensureSheet_() {
     .setFontWeight("bold")
     .setHorizontalAlignment("center");
 
-  sheet.setColumnWidth(1, 190); // رقم التسجيل
-  sheet.setColumnWidth(2, 180); // وقت التسجيل
-  sheet.setColumnWidth(3, 230); // الاسم الثلاثي
-  sheet.setColumnWidth(4, 155); // رقم الهاتف
-
-  sheet.getRange("B:B").setNumberFormat("yyyy-mm-dd hh:mm:ss");
-  sheet.getRange("D:D").setNumberFormat("@");
+  sheet.setColumnWidth(1, 280); // الاسم الثلاثي
+  sheet.setColumnWidth(2, 190); // رقم الهاتف
+  sheet.getRange("B:B").setNumberFormat("@");
 
   const filter = sheet.getFilter();
   if (filter) filter.remove();
