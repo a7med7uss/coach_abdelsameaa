@@ -50,9 +50,10 @@ function doPost(e) {
     const sheet = ensureSheet_();
     const lastRow = sheet.getLastRow();
     if (lastRow > 1) {
-      const phones = sheet.getRange(2, 3, lastRow - 1, 1).getDisplayValues().flat();
-      if (phones.some(existing => normalizePhone_(existing) === phone)) {
-        return json_({ ok: false, duplicate: true, message: "رقم الهاتف مسجل بالفعل." });
+      const existingRows = sheet.getRange(2, 1, lastRow - 1, HEADERS.length).getDisplayValues();
+      const duplicate = existingRows.find(row => normalizePhone_(row[2]) === phone);
+      if (duplicate) {
+        return json_({ ok: false, duplicate: true, registeredName: duplicate[1], message: "رقم الهاتف مسجل بالفعل." });
       }
     }
 
