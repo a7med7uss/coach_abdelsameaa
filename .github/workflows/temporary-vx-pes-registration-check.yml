@@ -1,0 +1,35 @@
+name: Temporary VX_Pes integration verification
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  verify-registration:
+    if: github.event.head_commit.message == 'Run VX_Pes integration verification'
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Submit a controlled test registration
+        shell: bash
+        run: |
+          set -euo pipefail
+          payload='{"fullName":"اختبار VX_Pes","phone":"01000000000"}'
+          response="$(curl --silent --show-error --max-time 30 \
+            -X POST 'https://vx-pes.vercel.app/api/register' \
+            -H 'Content-Type: application/json' \
+            --data "$payload" \
+            -w '\n__HTTP_STATUS__:%{http_code}')"
+          status="$(printf '%s' "$response" | sed -n 's/^__HTTP_STATUS__://p' | tail -1)"
+          body="$(printf '%s' "$response" | sed '/^__HTTP_STATUS__:/d')"
+          echo "HTTP status: $status"
+          echo "Response: $body"
+          if [[ "$status" == "200" ]] && echo "$body" | grep -q '"ok":true'; then
+            echo "PASS: The registration was confirmed by the server."
+          elif [[ "$status" == "409" ]] && echo "$body" | grep -q '"duplicate":true'; then
+            echo "PASS: The endpoint reached the shared sheet and correctly rejected the already-used test number."
+          else
+            echo "FAIL: Registration was neither confirmed nor identified as a duplicate."
+            exit 1
+          fi
