@@ -1,9 +1,9 @@
 /**
- * إعدادات مسابقة بيس VX
- * بعد نشر Google Apps Script كتطبيق ويب، ضع رابط /exec في registrationEndpoint.
- * غيّر adminPin إلى رمز خاص بك؛ هذا الرمز يخص التصدير المحلي فقط وليس حماية قاعدة البيانات.
+ * إعدادات واجهة مسابقة بيس VX.
+ * رابط Google Apps Script يتم حفظه في Vercel Environment Variables باسم GOOGLE_SCRIPT_URL،
+ * وليس هنا، حتى تستطيع واجهة الخادم قراءة نتيجة التسجيل ومنع الأرقام المكررة.
+ * رمز adminPin يخص التصدير المحلي التجريبي فقط، وليس وسيلة أمان للإدارة.
  */
 window.VX_CONFIG = {
-  registrationEndpoint: "",
   adminPin: "4286"
 };
