@@ -56,7 +56,8 @@
   const STORAGE_KEY = "vx-pes-registrations-v1";
   const ADMIN_PIN = String(CONFIG.adminPin || "4286");
   const form = $("registerForm"), nameField = $("fullName"), phoneField = $("phone");
-  let audioCtx = null, soundOn = false, noticeTimer;\n  const ambienceAudio = $("ambienceAudio"), goalAudio = $("goalAudio");
+  let audioCtx = null, soundOn = false, noticeTimer;
+  const ambienceAudio = $("ambienceAudio"), goalAudio = $("goalAudio");
   const arabicDigits = (s) => s.replace(/[٠-٩۰-۹]/g, c => "٠١٢٣٤٥٦٧٨٩".indexOf(c) > -1 ? String("٠١٢٣٤٥٦٧٨٩".indexOf(c)) : String("۰۱۲۳۴۵۶۷۸۹".indexOf(c)));
   const cleanPhone = (s) => arabicDigits(s).replace(/[\s()+.-]/g,"");
   function getRegs(){try{return JSON.parse(localStorage.getItem(STORAGE_KEY)||"[]")}catch{return []}}
