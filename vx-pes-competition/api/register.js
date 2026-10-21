@@ -18,31 +18,34 @@ module.exports = async function handler(req, res) {
       const rawHealth = await healthResponse.text();
       let health;
       try { health = JSON.parse(rawHealth); } catch (error) { health = null; }
-      if (!healthResponse.ok || !health || health.ok !== true || health.service !== "مسابقة بيس VX") {
-        console.error("Apps Script health check failed", {
-          status: healthResponse.status,
-          contentType: healthResponse.headers.get("content-type") || "unknown",
-          redirected: healthResponse.redirected
-        });
-        return res.status(502).json({
-          ok: false,
-          code: "GOOGLE_SCRIPT_UNREACHABLE",
-          message: "الموقع لا يستطيع الوصول إلى خدمة Google Apps Script. راجع صلاحية أي شخص وآخر إصدار منشور."
-        });
-      }
+      const healthy = Boolean(healthResponse.ok && health && health.ok === true && health.service === "مسابقة بيس VX");
+      console.log("Registration health check", {
+        route: "ready",
+        googleAppsScript: healthy ? "reachable" : "unhealthy",
+        upstreamStatus: healthResponse.status,
+        contentType: healthResponse.headers.get("content-type") || "unknown",
+        redirected: healthResponse.redirected,
+        responseLooksLikeJson: Boolean(health)
+      });
       return res.status(200).json({
-        ok: true,
+        ok: healthy,
         service: "مسابقة بيس VX",
         registrationRoute: "ready",
-        googleAppsScript: "reachable",
-        note: "فحص الاتصال لا يضيف تسجيلًا."
+        googleAppsScript: healthy ? "reachable" : "unhealthy",
+        upstreamStatus: healthResponse.status,
+        responseLooksLikeJson: Boolean(health),
+        message: healthy
+          ? "الاتصال بخدمة التسجيل جاهز. لم يُضف هذا الفحص تسجيلًا."
+          : "مسار الموقع يعمل، لكن رد Google Apps Script غير متوقع. تحقق من صلاحية النشر وآخر إصدار."
       });
     } catch (error) {
       console.error("Apps Script health request failed", error?.message || "unknown error");
-      return res.status(502).json({
+      return res.status(200).json({
         ok: false,
-        code: "GOOGLE_SCRIPT_NETWORK_ERROR",
-        message: "تعذر الاتصال بخدمة Google. افحص إعداد النشر ورابط السكربت."
+        service: "مسابقة بيس VX",
+        registrationRoute: "ready",
+        googleAppsScript: "network_error",
+        message: "وظيفة الموقع تعمل، لكن اتصال Google Apps Script فشل. افحص الرابط وصلاحية الوصول."
       });
     }
   }
