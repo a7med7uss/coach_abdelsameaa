@@ -110,3 +110,7 @@ function normalizePhone(value) {
   const arabic = "٠١٢٣٤٥٦٧٨٩", persian = "۰۱۲۳۴۵۶۷۸۹";
   return String(value).replace(/[٠-٩۰-۹]/g, c => {const a=arabic.indexOf(c);return String(a>=0?a:persian.indexOf(c));}).replace(/[\s()+.\-]/g, "");
 }
+function safeHost(urlValue) {
+  try { return new URL(urlValue).host; }
+  catch (error) { return "unknown"; }
+}
