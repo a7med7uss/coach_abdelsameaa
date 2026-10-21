@@ -92,7 +92,7 @@
   }
   form.addEventListener("submit",async(e)=>{
     e.preventDefault();
-    const fullName=nameField.value.trim().replace(/\\s+/g," "), phone=cleanPhone(phoneField.value);
+    const fullName=nameField.value.trim().replace(/\s+/g," "), phone=cleanPhone(phoneField.value);
     const nameOk=validName(fullName), phoneOk=validPhone(phone);
     setInvalid(nameField,"nameError",!nameOk);setInvalid(phoneField,"phoneError",!phoneOk);
     if(!nameOk||!phoneOk){(!nameOk?nameField:phoneField).focus();showNotice("راجع البيانات","محتاجين الاسم الثلاثي ورقم هاتف صحيح.",true);return}
