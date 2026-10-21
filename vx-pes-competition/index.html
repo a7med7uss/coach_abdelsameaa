@@ -3,153 +3,205 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#07100d">
+<meta name="theme-color" content="#020612">
 <meta name="description" content="سجّل في مسابقة بيس VX — تحدي كرة القدم على بلايستيشن 4.">
 <title>مسابقة بيس VX</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
-:root{color-scheme:dark;--bg:#07100d;--panel:#101b16;--line:rgba(226,255,235,.12);--muted:#aab9b0;--lime:#c5ff4a;--green:#63ec91;--white:#f5fff7;--pink:#ff5c7a}
-*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}body{margin:0;min-height:100svh;background:radial-gradient(ellipse at 50% 0%,#173d2a 0%,#09150f 38%,#060b09 78%);color:var(--white);font-family:"Cairo",Tahoma,sans-serif;overflow-x:hidden}button,input{font:inherit}button{cursor:pointer;-webkit-tap-highlight-color:transparent}button:focus-visible,input:focus-visible{outline:2px solid var(--lime);outline-offset:3px}a{color:inherit}.shell{position:relative;width:100%;max-width:520px;min-height:100svh;margin:auto;padding:16px 18px 30px;overflow:hidden}.topbar{display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative;z-index:3}.brand{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:900;letter-spacing:-.3px}.brand-mark{width:39px;height:39px;display:grid;place-items:center;border:1px solid rgba(197,255,74,.42);border-radius:13px;background:linear-gradient(145deg,rgba(197,255,74,.19),rgba(99,236,145,.04));box-shadow:0 0 28px #8cff3c16}.brand-mark svg{width:25px;height:25px}.sound{display:flex;align-items:center;gap:7px;border:1px solid var(--line);border-radius:999px;background:#101c16b8;color:#d7e6db;font-size:11px;font-weight:700;padding:9px 12px;transition:.2s}.sound .led{height:6px;width:6px;border-radius:50%;background:#7b8e81}.sound[aria-pressed=true]{border-color:#c5ff4a66;color:var(--lime)}.sound[aria-pressed=true] .led{background:var(--lime);box-shadow:0 0 12px var(--lime)}.hero{position:relative;text-align:center;padding:34px 0 8px}.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:7px 11px;border:1px solid #c5ff4a42;background:#b3fa3b0b;border-radius:100px;color:var(--lime);font-size:10px;font-weight:800;letter-spacing:.4px}.eyebrow:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--lime);box-shadow:0 0 10px var(--lime)}h1{margin:17px 0 0;font-size:clamp(42px,12vw,61px);line-height:1.18;font-weight:900;letter-spacing:-2.2px}h1 .accent{color:var(--lime);text-shadow:0 0 32px #c5ff4a2b}.hero-copy{margin:13px auto 0;max-width:330px;color:#c0cec5;font-size:13px;line-height:2;font-weight:500}.hero-copy strong{color:#fff}.stadium{height:225px;position:relative;margin:10px -18px 0;isolation:isolate}.stadium:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 7%,#d3ff8d1f,transparent 55%),linear-gradient(180deg,transparent 0%,#06100d00 48%,#07100d 96%);z-index:1;pointer-events:none}.light{position:absolute;top:8px;width:150px;height:150px;filter:blur(1px);opacity:.72;background:conic-gradient(from 215deg at 50% 0%,transparent 0deg,#c5ff4a20 35deg,transparent 65deg);transform-origin:top}.light.left{left:3px;transform:rotate(-14deg)}.light.right{right:0;transform:scaleX(-1) rotate(-14deg)}.stand{position:absolute;top:23px;left:8%;right:8%;height:82px;border-radius:50% 50% 0 0/38% 38% 0 0;border-top:1px solid #bfff6536;background:repeating-linear-gradient(90deg,transparent 0 10px,#b7ff5b12 11px 12px),repeating-linear-gradient(0deg,transparent 0 12px,#d8ffd508 13px 14px);mask-image:linear-gradient(#000,transparent 88%)}.pitch{position:absolute;left:50%;bottom:7px;transform:translateX(-50%) perspective(170px) rotateX(54deg);width:89%;height:165px;border:1px solid #a7f86b55;background:repeating-linear-gradient(0deg,#173b27 0 25px,#1d4b30 26px 49px);box-shadow:0 0 42px #65ff6a18;overflow:hidden}.pitch:before{content:"";position:absolute;inset:10px;border:1px solid #ccffb34c}.pitch:after{content:"";position:absolute;left:50%;top:10px;bottom:10px;width:1px;background:#ccffb34c;box-shadow:0 0 0 28px #0000}.circle{position:absolute;width:55px;height:55px;border:1px solid #ccffb34b;border-radius:50%;left:50%;top:50%;transform:translate(-50%,-50%)}.goal{position:absolute;width:54px;height:21px;left:50%;transform:translateX(-50%);border:1px solid #d0ffb65c}.goal.top{top:10px;border-top:0}.goal.bottom{bottom:10px;border-bottom:0}.ball-wrap{position:absolute;z-index:2;left:50%;top:42%;transform:translate(-50%,-50%);width:105px;height:105px;display:grid;place-items:center;filter:drop-shadow(0 19px 11px #0009);animation:float 4s ease-in-out infinite}.ball-wrap:before{content:"";position:absolute;width:95px;height:21px;border-radius:50%;background:#0008;filter:blur(12px);bottom:-13px;transform:scaleX(1.25)}.ball{position:relative;width:100%;height:100%;transform:rotate(-13deg);transition:transform .5s cubic-bezier(.2,.8,.2,1)}.ball svg{width:100%;height:100%;overflow:visible}.shell.kick .ball{animation:kick .6s cubic-bezier(.15,.8,.4,1)}.sparks{position:absolute;inset:0;pointer-events:none;z-index:2}.spark{position:absolute;width:3px;height:3px;background:var(--lime);border-radius:50%;box-shadow:0 0 13px var(--lime);animation:blink 2.5s ease-in-out infinite}.spark:nth-child(1){left:17%;top:38%}.spark:nth-child(2){right:14%;top:54%;animation-delay:.7s}.spark:nth-child(3){left:27%;top:69%;animation-delay:1.2s}.spark:nth-child(4){right:29%;top:28%;animation-delay:1.8s}.intro-line{display:flex;align-items:center;gap:10px;justify-content:center;color:#a8b9ad;font-size:10px;font-weight:700;margin-top:-7px}.intro-line:before,.intro-line:after{content:"";height:1px;width:32px;background:linear-gradient(90deg,transparent,#65836b)}.intro-line:after{transform:rotate(180deg)}.register-card{position:relative;border-radius:25px;padding:21px 19px 19px;background:linear-gradient(145deg,#15241bfa,#0c1511fa);border:1px solid #c5ff4a27;box-shadow:0 25px 70px #0004,inset 0 1px #ffffff0a;scroll-margin-top:12px}.card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:18px}.card-title{font-size:20px;font-weight:900;line-height:1.5}.card-sub{font-size:11px;color:var(--muted);margin-top:2px}.step{font-size:10px;color:var(--lime);border:1px solid #c5ff4a33;border-radius:10px;padding:6px 8px;white-space:nowrap}.field{margin-bottom:14px}.field label{display:block;margin:0 0 7px;font-size:12px;font-weight:800;color:#e5efe7}.input-wrap{position:relative}.field input{width:100%;height:53px;padding:0 43px 0 14px;border-radius:14px;color:#f6fff7;background:#080f0b;border:1px solid #ffffff17;outline:none;transition:.2s;font-size:13px}.field input::placeholder{color:#64756a}.field input:focus{border-color:#c5ff4a8c;box-shadow:0 0 0 3px #c5ff4a0c}.field input.invalid{border-color:#ff5c7a88}.field-icon{position:absolute;right:14px;top:50%;transform:translateY(-50%);width:17px;height:17px;color:#849b8c;pointer-events:none}.hint{display:flex;align-items:center;gap:5px;color:#84988b;font-size:10px;margin-top:7px}.hint svg{width:13px;height:13px;flex:0 0 auto}.submit{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:56px;margin-top:19px;border:0;border-radius:15px;background:linear-gradient(110deg,#d8ff76,var(--lime) 48%,#a5f34a);color:#102010;font-size:14px;font-weight:900;box-shadow:0 9px 28px #baff4323,inset 0 1px #ffffff80;transition:transform .18s,box-shadow .18s}.submit:active{transform:scale(.985)}.submit svg{width:19px;height:19px}.submit:disabled{opacity:.6;cursor:wait}.secure-note{display:flex;align-items:center;justify-content:center;gap:7px;margin-top:13px;color:#778b7d;font-size:10px}.secure-note svg{width:13px;height:13px;color:#a4ca94}.rules{display:flex;gap:11px;align-items:center;margin-top:15px;padding:13px;border-radius:14px;background:#ffffff04;border:1px solid #ffffff0a}.rules-icon{height:34px;width:34px;flex:0 0 auto;border-radius:11px;display:grid;place-items:center;background:#c5ff4a12;color:var(--lime)}.rules-icon svg{width:17px;height:17px}.rules strong{display:block;font-size:11px}.rules p{margin:2px 0 0;font-size:10px;line-height:1.7;color:#87988c}.bottom{padding:22px 0 2px;text-align:center;color:#697a6f;font-size:10px}.bottom strong{color:#b5c9b8}.bottom .mini-ball{display:inline-block;color:var(--lime);margin:0 3px}.admin-link{background:none;border:0;color:#718176;text-decoration:underline;text-underline-offset:3px;font-size:10px;padding:12px 5px;margin-top:6px}.goal-celebration{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;overflow:hidden;background:radial-gradient(ellipse at 50% 28%,#174a78 0%,#07172c 42%,#020612 82%);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .25s,visibility .25s}.goal-celebration.active{opacity:1;visibility:visible;pointer-events:auto}.goal-scene{position:absolute;inset:0;overflow:hidden}.goal-light{position:absolute;top:-20%;left:50%;width:100vw;height:90vh;transform:translateX(-50%);background:conic-gradient(from 180deg at 50% 0%,transparent,#1976d21c,transparent 20%,#4ca8ff20,transparent 48%);filter:blur(8px)}.goal-crowd{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 95%,#1976d245,transparent 55%),repeating-linear-gradient(90deg,transparent 0 16px,#79c4ea08 17px 18px);mask-image:linear-gradient(transparent 15%,#000 65%,transparent)}.goal-ground{position:absolute;left:-25%;bottom:-15vh;width:150%;height:56vh;transform:perspective(370px) rotateX(47deg);transform-origin:bottom;background:repeating-linear-gradient(0deg,#0b2e4e 0 24px,#0c385b 25px 47px);border-top:2px solid #4ca8ff55;box-shadow:0 -10px 60px #1976d225}.goal-ground:before{content:"";position:absolute;inset:12px;border:1px solid #79c4ea44}.goal-frame{position:absolute;left:50%;bottom:38%;transform:translateX(-50%);width:min(78vw,410px);height:23vh;max-height:190px;border:5px solid #d8c7a8;border-bottom:0;border-radius:8px 8px 0 0;box-shadow:0 0 22px #4ca8ff70,inset 0 0 25px #1976d225}.goal-net{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 12px,#dbeeff45 13px 14px),repeating-linear-gradient(90deg,transparent 0 15px,#dbeeff45 16px 17px);transform-origin:top center}.goal-celebration.active .goal-net{animation:netRipple .7s ease-out 1.03s 2}.shot-ball{position:absolute;z-index:3;left:50%;bottom:12%;width:clamp(55px,17vw,84px);aspect-ratio:1;transform:translateX(-50%);filter:drop-shadow(0 12px 18px #000a)}.shot-ball svg{width:100%;height:100%}.goal-celebration.active .shot-ball{animation:ballIntoNet 1.45s cubic-bezier(.22,.76,.24,1) forwards}.goal-caption{position:absolute;left:15px;right:15px;bottom:10vh;text-align:center;opacity:0;transform:translateY(12px)}.goal-celebration.active .goal-caption{animation:goalCaption .45s ease-out 1.55s forwards}.goal-title{margin:0;color:#f2f4f5;font-size:clamp(34px,11vw,56px);line-height:1.25;font-weight:900;text-shadow:0 0 30px #1976d2aa}.goal-subtitle{margin:10px 0 0;color:#79c4ea;font-size:15px;font-weight:800}.goal-caption .gold-rule{height:2px;width:62px;margin:16px auto 0;background:linear-gradient(90deg,transparent,#d8c7a8,transparent)}@keyframes ballIntoNet{0%{transform:translate(-50%,0) rotate(0) scale(1)}52%{transform:translate(-50%,-25vh) rotate(310deg) scale(.78)}76%{transform:translate(calc(-50% + 5px),-37vh) rotate(540deg) scale(.6)}84%{transform:translate(calc(-50% - 5px),-35.5vh) rotate(640deg) scale(.59)}100%{transform:translate(-50%,-37vh) rotate(810deg) scale(.28);opacity:.82}}@keyframes netRipple{0%,100%{transform:skewX(0) scaleY(1)}25%{transform:skewX(3deg) scaleY(.88)}55%{transform:skewX(-3deg) scaleY(.95)}75%{transform:skewX(1deg) scaleY(1)}}@keyframes goalCaption{to{opacity:1;transform:translateY(0)}}.notice{display:none;position:fixed;z-index:20;left:15px;right:15px;bottom:calc(14px + env(safe-area-inset-bottom));margin:auto;max-width:470px;border-radius:16px;padding:14px 15px;background:#13251a;border:1px solid #8dff7855;box-shadow:0 15px 50px #0008;font-size:12px;line-height:1.8}.notice.show{display:block;animation:slideup .28s ease-out}.notice.error{border-color:#ff5c7a88;background:#29141a}.notice strong{display:block;font-size:13px}.notice p{margin:2px 0 0;color:#b5c7ba}.modal-backdrop{display:none;position:fixed;inset:0;z-index:30;background:#030906dd;backdrop-filter:blur(9px);padding:18px;align-items:flex-end;justify-content:center}.modal-backdrop.open{display:flex}.modal{width:100%;max-width:480px;border:1px solid #c5ff4a32;border-radius:24px 24px 18px 18px;background:#0d1812;padding:22px;box-shadow:0 20px 70px #0009;animation:slideup .25s ease-out;max-height:85svh;overflow:auto}.modal h2{margin:0 0 6px;font-size:20px}.modal p{margin:0 0 16px;color:#96a99a;font-size:12px;line-height:1.8}.modal input{width:100%;height:48px;border:1px solid var(--line);background:#07100c;color:white;border-radius:12px;padding:0 13px;direction:ltr;text-align:left;margin-bottom:10px}.modal-actions{display:flex;gap:8px}.modal-actions button{flex:1;min-height:46px;border-radius:12px;font-weight:800;font-size:12px}.btn-main{border:0;background:var(--lime);color:#11200f}.btn-ghost{border:1px solid var(--line);background:transparent;color:#d7e8da}.export-list{margin-top:13px;display:grid;gap:8px}.export-row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px;border:1px solid var(--line);border-radius:12px;font-size:11px}.export-row button{background:#c5ff4a17;border:1px solid #c5ff4a33;border-radius:9px;color:var(--lime);font-weight:800;padding:7px 9px;font-size:10px}.footnote{margin-top:13px!important;font-size:10px!important;color:#758a7c!important}.field-error{display:none;color:#ff8da1;font-size:10px;margin-top:5px}.field-error.show{display:block}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}@keyframes float{0%,100%{transform:translate(-50%,-50%) translateY(0) rotate(-2deg)}50%{transform:translate(-50%,-50%) translateY(-9px) rotate(3deg)}}@keyframes kick{0%{transform:rotate(0) scale(1)}32%{transform:rotate(100deg) translateY(-11px) scale(1.08)}100%{transform:rotate(210deg) translateY(0) scale(1)}}@keyframes blink{0%,100%{opacity:.15;transform:scale(.6)}50%{opacity:1;transform:scale(1.4)}}@keyframes slideup{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}@media(min-width:600px){body{padding:20px 0}.shell{border:1px solid #ffffff0a;border-radius:30px;min-height:calc(100svh - 40px);box-shadow:0 25px 100px #0005}.stadium{height:235px}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition:none!important}}
-</style>
+:root{color-scheme:dark;--bg:#020612;--panel:#0A1121;--line:rgba(121,196,234,.16);--muted:#9AAAC1;--lime:#4CA8FF;--green:#1976D2;--white:#F2F4F5;--pink:#ff5c7a}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}body{margin:0;min-height:100svh;background:radial-gradient(ellipse at 50% 0%,#0B3E78 0%,#061126 38%,#020612 78%);color:var(--white);font-family:"Tajawal",Tahoma,sans-serif;overflow-x:hidden}button,input{font:inherit}button{cursor:pointer;-webkit-tap-highlight-color:transparent}button:focus-visible,input:focus-visible{outline:2px solid var(--lime);outline-offset:3px}a{color:inherit}.shell{position:relative;width:100%;max-width:520px;min-height:100svh;margin:auto;padding:16px 18px 30px;overflow:hidden}.topbar{display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative;z-index:3}.brand{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:900;letter-spacing:-.3px}.brand-mark{width:39px;height:39px;display:grid;place-items:center;border:1px solid rgba(76,168,255,.42);border-radius:13px;background:linear-gradient(145deg,rgba(25,118,210,.19),rgba(76,168,255,.04));box-shadow:0 0 28px #1976D216}.brand-mark svg{width:25px;height:25px}.hero{position:relative;text-align:center;padding:34px 0 8px}.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:7px 11px;border:1px solid #4CA8FF42;background:#1976D20B;border-radius:100px;color:var(--lime);font-size:10px;font-weight:800;letter-spacing:.4px}.eyebrow:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--lime);box-shadow:0 0 10px var(--lime)}h1{margin:17px 0 0;font-size:clamp(42px,12vw,61px);line-height:1.18;font-weight:900;letter-spacing:-2.2px}h1 .accent{color:var(--lime);text-shadow:0 0 32px #4CA8FF2b}.hero-copy{margin:13px auto 0;max-width:330px;color:#B8C8DC;font-size:13px;line-height:2;font-weight:500}.hero-copy strong{color:#fff}.stadium{height:225px;position:relative;margin:10px -18px 0;isolation:isolate}.stadium:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 7%,#4CA8FF1F,transparent 55%),linear-gradient(180deg,transparent 0%,#06100d00 48%,#020612 96%);z-index:1;pointer-events:none}.light{position:absolute;top:8px;width:150px;height:150px;filter:blur(1px);opacity:.72;background:conic-gradient(from 215deg at 50% 0%,transparent 0deg,#4CA8FF20 35deg,transparent 65deg);transform-origin:top}.light.left{left:3px;transform:rotate(-14deg)}.light.right{right:0;transform:scaleX(-1) rotate(-14deg)}.stand{position:absolute;top:23px;left:8%;right:8%;height:82px;border-radius:50% 50% 0 0/38% 38% 0 0;border-top:1px solid #79C4EA36;background:repeating-linear-gradient(90deg,transparent 0 10px,#4CA8FF12 11px 12px),repeating-linear-gradient(0deg,transparent 0 12px,#79C4EA08 13px 14px);mask-image:linear-gradient(#000,transparent 88%)}.pitch{position:absolute;left:50%;bottom:7px;transform:translateX(-50%) perspective(170px) rotateX(54deg);width:89%;height:165px;border:1px solid #a7f86b55;background:repeating-linear-gradient(0deg,#061126 0 25px,#0B3E78 26px 49px);box-shadow:0 0 42px #1976D218;overflow:hidden}.pitch:before{content:"";position:absolute;inset:10px;border:1px solid #79C4EA4C}.pitch:after{content:"";position:absolute;left:50%;top:10px;bottom:10px;width:1px;background:#79C4EA4C;box-shadow:0 0 0 28px #0000}.circle{position:absolute;width:55px;height:55px;border:1px solid #79C4EA4B;border-radius:50%;left:50%;top:50%;transform:translate(-50%,-50%)}.goal{position:absolute;width:54px;height:21px;left:50%;transform:translateX(-50%);border:1px solid #D8C7A85C}.goal.top{top:10px;border-top:0}.goal.bottom{bottom:10px;border-bottom:0}.ball-wrap{position:absolute;z-index:2;left:50%;top:42%;transform:translate(-50%,-50%);width:105px;height:105px;display:grid;place-items:center;filter:drop-shadow(0 19px 11px #0009);animation:float 4s ease-in-out infinite}.ball-wrap:before{content:"";position:absolute;width:95px;height:21px;border-radius:50%;background:#0008;filter:blur(12px);bottom:-13px;transform:scaleX(1.25)}.ball{position:relative;width:100%;height:100%;transform:rotate(-13deg);transition:transform .5s cubic-bezier(.2,.8,.2,1)}.ball svg{width:100%;height:100%;overflow:visible}.shell.kick .ball{animation:kick .6s cubic-bezier(.15,.8,.4,1)}.sparks{position:absolute;inset:0;pointer-events:none;z-index:2}.spark{position:absolute;width:3px;height:3px;background:var(--lime);border-radius:50%;box-shadow:0 0 13px var(--lime);animation:blink 2.5s ease-in-out infinite}.spark:nth-child(1){left:17%;top:38%}.spark:nth-child(2){right:14%;top:54%;animation-delay:.7s}.spark:nth-child(3){left:27%;top:69%;animation-delay:1.2s}.spark:nth-child(4){right:29%;top:28%;animation-delay:1.8s}.intro-line{display:flex;align-items:center;gap:10px;justify-content:center;color:#a8b9ad;font-size:10px;font-weight:700;margin-top:-7px}.intro-line:before,.intro-line:after{content:"";height:1px;width:32px;background:linear-gradient(90deg,transparent,#65836b)}.intro-line:after{transform:rotate(180deg)}.register-card{position:relative;border-radius:25px;padding:21px 19px 19px;background:linear-gradient(145deg,#0A1121FA,#061126FA);border:1px solid #4CA8FF27;box-shadow:0 25px 70px #0004,inset 0 1px #79C4EA0A;scroll-margin-top:12px}.card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:18px}.card-title{font-size:20px;font-weight:900;line-height:1.5}.card-sub{font-size:11px;color:var(--muted);margin-top:2px}.step{font-size:10px;color:var(--lime);border:1px solid #4CA8FF33;border-radius:10px;padding:6px 8px;white-space:nowrap}.field{margin-bottom:14px}.field label{display:block;margin:0 0 7px;font-size:12px;font-weight:800;color:#D5E6F5}.input-wrap{position:relative}.field input{width:100%;height:53px;padding:0 43px 0 14px;border-radius:14px;color:#f6fff7;background:#061126;border:1px solid #79C4EA17;outline:none;transition:.2s;font-size:13px}.field input::placeholder{color:#7187A7}.field input:focus{border-color:#4CA8FF8c;box-shadow:0 0 0 3px #4CA8FF0c}.field input.invalid{border-color:#ff5c7a88}.field-icon{position:absolute;right:14px;top:50%;transform:translateY(-50%);width:17px;height:17px;color:#79C4EA;pointer-events:none}.hint{display:flex;align-items:center;gap:5px;color:#9AAAC1;font-size:10px;margin-top:7px}.hint svg{width:13px;height:13px;flex:0 0 auto}.submit{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:56px;margin-top:19px;border:0;border-radius:15px;background:linear-gradient(110deg,#79C4EA,var(--lime) 48%,#1976D2);color:#020612;font-size:14px;font-weight:900;box-shadow:0 9px 28px #4CA8FF23,inset 0 1px #ffffff80;transition:transform .18s,box-shadow .18s}.submit:active{transform:scale(.985)}.submit svg{width:19px;height:19px}.submit:disabled{opacity:.6;cursor:wait}.secure-note{display:flex;align-items:center;justify-content:center;gap:7px;margin-top:13px;color:#778b7d;font-size:10px}.secure-note svg{width:13px;height:13px;color:#79C4EA}.rules{display:flex;gap:11px;align-items:center;margin-top:15px;padding:13px;border-radius:14px;background:#ffffff04;border:1px solid #79C4EA0A}.rules-icon{height:34px;width:34px;flex:0 0 auto;border-radius:11px;display:grid;place-items:center;background:#4CA8FF12;color:var(--lime)}.rules-icon svg{width:17px;height:17px}.rules strong{display:block;font-size:11px}.rules p{margin:2px 0 0;font-size:10px;line-height:1.7;color:#87988c}.bottom{padding:22px 0 2px;text-align:center;color:#7187A7;font-size:10px}.bottom strong{color:#D5E6F5}.bottom .mini-ball{display:inline-block;color:var(--lime);margin:0 3px}.admin-link{background:none;border:0;color:#718176;text-decoration:underline;text-underline-offset:3px;font-size:10px;padding:12px 5px;margin-top:6px}.goal-celebration{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;overflow:hidden;background:radial-gradient(ellipse at 50% 28%,#174a78 0%,#07172c 42%,#020612 82%);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .25s,visibility .25s}.goal-celebration.active{opacity:1;visibility:visible;pointer-events:auto}.goal-scene{position:absolute;inset:0;overflow:hidden}.goal-light{position:absolute;top:-20%;left:50%;width:100vw;height:90vh;transform:translateX(-50%);background:conic-gradient(from 180deg at 50% 0%,transparent,#1976d21c,transparent 20%,#4ca8ff20,transparent 48%);filter:blur(8px)}.goal-crowd{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 95%,#1976d245,transparent 55%),repeating-linear-gradient(90deg,transparent 0 16px,#79c4ea08 17px 18px);mask-image:linear-gradient(transparent 15%,#000 65%,transparent)}.goal-ground{position:absolute;left:-25%;bottom:-15vh;width:150%;height:56vh;transform:perspective(370px) rotateX(47deg);transform-origin:bottom;background:repeating-linear-gradient(0deg,#0b2e4e 0 24px,#0c385b 25px 47px);border-top:2px solid #4ca8ff55;box-shadow:0 -10px 60px #1976d225}.goal-ground:before{content:"";position:absolute;inset:12px;border:1px solid #79c4ea44}.goal-frame{position:absolute;left:50%;bottom:38%;transform:translateX(-50%);width:min(78vw,410px);height:23vh;max-height:190px;border:5px solid #d8c7a8;border-bottom:0;border-radius:8px 8px 0 0;box-shadow:0 0 22px #4ca8ff70,inset 0 0 25px #1976d225}.goal-net{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 12px,#dbeeff45 13px 14px),repeating-linear-gradient(90deg,transparent 0 15px,#dbeeff45 16px 17px);transform-origin:top center}.goal-celebration.active .goal-net{animation:netRipple .7s ease-out 1.03s 2}.shot-ball{position:absolute;z-index:3;left:50%;bottom:12%;width:clamp(55px,17vw,84px);aspect-ratio:1;transform:translateX(-50%);filter:drop-shadow(0 12px 18px #000a)}.shot-ball svg{width:100%;height:100%}.goal-celebration.active .shot-ball{animation:ballIntoNet 1.45s cubic-bezier(.22,.76,.24,1) forwards}.goal-caption{position:absolute;left:15px;right:15px;bottom:10vh;text-align:center;opacity:0;transform:translateY(12px)}.goal-celebration.active .goal-caption{animation:goalCaption .45s ease-out 1.55s forwards}.goal-title{margin:0;color:#f2f4f5;font-size:clamp(34px,11vw,56px);line-height:1.25;font-weight:900;text-shadow:0 0 30px #1976d2aa}.goal-subtitle{margin:10px 0 0;color:#79c4ea;font-size:15px;font-weight:800}.goal-caption .gold-rule{height:2px;width:62px;margin:16px auto 0;background:linear-gradient(90deg,transparent,#d8c7a8,transparent)}@keyframes ballIntoNet{0%{transform:translate(-50%,0) rotate(0) scale(1)}52%{transform:translate(-50%,-25vh) rotate(310deg) scale(.78)}76%{transform:translate(calc(-50% + 5px),-37vh) rotate(540deg) scale(.6)}84%{transform:translate(calc(-50% - 5px),-35.5vh) rotate(640deg) scale(.59)}100%{transform:translate(-50%,-37vh) rotate(810deg) scale(.28);opacity:.82}}@keyframes netRipple{0%,100%{transform:skewX(0) scaleY(1)}25%{transform:skewX(3deg) scaleY(.88)}55%{transform:skewX(-3deg) scaleY(.95)}75%{transform:skewX(1deg) scaleY(1)}}@keyframes goalCaption{to{opacity:1;transform:translateY(0)}}.notice{display:none;position:fixed;z-index:20;left:15px;right:15px;bottom:calc(14px + env(safe-area-inset-bottom));margin:auto;max-width:470px;border-radius:16px;padding:14px 15px;background:#0A1121;border:1px solid #4CA8FF55;box-shadow:0 15px 50px #0008;font-size:12px;line-height:1.8}.notice.show{display:block;animation:slideup .28s ease-out}.notice.error{border-color:#ff5c7a88;background:#29141a}.notice strong{display:block;font-size:13px}.notice p{margin:2px 0 0;color:#B8C8DC}.modal-backdrop{display:none;position:fixed;inset:0;z-index:30;background:#030906dd;backdrop-filter:blur(9px);padding:18px;align-items:flex-end;justify-content:center}.modal-backdrop.open{display:flex}.modal{width:100%;max-width:480px;border:1px solid #4CA8FF32;border-radius:24px 24px 18px 18px;background:#0A1121;padding:22px;box-shadow:0 20px 70px #0009;animation:slideup .25s ease-out;max-height:85svh;overflow:auto}.modal h2{margin:0 0 6px;font-size:20px}.modal p{margin:0 0 16px;color:#9AAAC1;font-size:12px;line-height:1.8}.modal input{width:100%;height:48px;border:1px solid var(--line);background:#020612;color:white;border-radius:12px;padding:0 13px;direction:ltr;text-align:left;margin-bottom:10px}.modal-actions{display:flex;gap:8px}.modal-actions button{flex:1;min-height:46px;border-radius:12px;font-weight:800;font-size:12px}.btn-main{border:0;background:var(--lime);color:#11200f}.btn-ghost{border:1px solid var(--line);background:transparent;color:#d7e8da}.export-list{margin-top:13px;display:grid;gap:8px}.export-row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px;border:1px solid var(--line);border-radius:12px;font-size:11px}.export-row button{background:#4CA8FF17;border:1px solid #4CA8FF33;border-radius:9px;color:var(--lime);font-weight:800;padding:7px 9px;font-size:10px}.footnote{margin-top:13px!important;font-size:10px!important;color:#758a7c!important}.field-error{display:none;color:#ff8da1;font-size:10px;margin-top:5px}.field-error.show{display:block}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}@keyframes float{0%,100%{transform:translate(-50%,-50%) translateY(0) rotate(-2deg)}50%{transform:translate(-50%,-50%) translateY(-9px) rotate(3deg)}}@keyframes kick{0%{transform:rotate(0) scale(1)}32%{transform:rotate(100deg) translateY(-11px) scale(1.08)}100%{transform:rotate(210deg) translateY(0) scale(1)}}@keyframes blink{0%,100%{opacity:.15;transform:scale(.6)}50%{opacity:1;transform:scale(1.4)}}@keyframes slideup{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}@media(min-width:600px){body{padding:20px 0}.shell{border:1px solid #79C4EA0A;border-radius:30px;min-height:calc(100svh - 40px);box-shadow:0 25px 100px #0005}.stadium{height:235px}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition:none!important}}
+.brand-logo{width:92px;height:62px;object-fit:cover;object-position:center;flex:0 0 auto;border-radius:10px;filter:drop-shadow(0 0 16px #1976D233)}.topbar{justify-content:flex-start}.brand{gap:10px;font-family:"Cairo",Tahoma,sans-serif}.hero h1{font-family:"Cairo",Tahoma,sans-serif;font-weight:900}.submit{font-family:"Cairo",Tahoma,sans-serif}.hero-copy strong{color:#F2F4F5}.bottom{padding:24px 0 12px;text-align:center;color:#9AAAC1;font-size:12px}.bottom strong{color:#D8C7A8;font-weight:800}</style>
 </head>
 <body>
 <main class="shell" id="shell">
   <header class="topbar">
-    <div class="brand"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M16 3 26.5 9v14L16 29 5.5 23V9L16 3Z" stroke="#c5ff4a" stroke-width="1.5"/><path d="m16 9 5 3v6l-5 3-5-3v-6l5-3Z" fill="#c5ff4a"/><path d="m11 12-4-2m14 2 4-2m-14 8-4 2m14-2 4 2" stroke="#c5ff4a" stroke-width="1.5" stroke-linecap="round"/></svg></span><span>مسابقة بيس VX</span></div>
-    <button class="sound" id="soundToggle" type="button" aria-pressed="false"><span class="led"></span><span id="soundLabel">الصوت مغلق</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4V5Z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M19 5a10 10 0 0 1 0 14" opacity=".55"/></svg></button>
+    <div class="brand"><img class="brand-logo" src="./VX-Logo.jpg" alt="VX"><span>مسابقة بيس VX</span></div>
   </header>
   <section class="hero">
     <div class="eyebrow">ملعب واحد · بطل واحد</div>
     <h1>مستعد تثبت<br><span class="accent">إنك الأفضل؟</span></h1>
-    <p class="hero-copy">المنافسة مش كلام... <strong>ورّينا مهارتك</strong><br>وسجّل اسمك في تحدي بيس على بلايستيشن ٤.</p>
+    <p class="hero-copy">المنافسة مش كلام... <strong>ورّينا مهارتك</strong><br>وسجّل اسمك في تحدي بيس.</p>
   </section>
   <section class="stadium" aria-label="ملعب كرة قدم بإضاءة خضراء">
     <div class="light left"></div><div class="light right"></div><div class="stand"></div>
     <div class="pitch"><div class="goal top"></div><div class="goal bottom"></div><div class="circle"></div></div>
-    <div class="ball-wrap"><div class="ball"><svg viewBox="0 0 120 120" role="img" aria-label="كرة قدم"><defs><radialGradient id="sphere" cx="34%" cy="27%" r="72%"><stop offset="0" stop-color="#fff"/><stop offset=".72" stop-color="#e9efe9"/><stop offset="1" stop-color="#8d9b91"/></radialGradient><clipPath id="ballclip"><circle cx="60" cy="60" r="49"/></clipPath></defs><circle cx="60" cy="60" r="51" fill="#c5ff4a" opacity=".18"/><g clip-path="url(#ballclip)"><circle cx="60" cy="60" r="49" fill="url(#sphere)"/><path d="m60 39 19 14-7 22H48l-7-22 19-14Z" fill="#1c2c22"/><path d="m60 39-3-21 17-8 17 13-4 20 11 13 18-5 8 17-13 16-20-3-12-14M41 53 22 45 8 58l3 20 18 10 19-13m-7-22-13-9 1-19 18-8 10 11m7 47 1 20-17 13-18-9-1-18m35-20 18-4 13 11-3 21-18 10-14-10m-23-39-7 22 12 16" fill="none" stroke="#9ca99f" stroke-width="2"/><path d="M60 39 41 53l7 22h24l7-22L60 39Z" fill="#17281d"/><path d="m60 39-3-21 17-8m-33 43-19-8m64-1 11 13m-30 38-1 20" fill="none" stroke="#f7fff8" stroke-width="2"/></g><circle cx="60" cy="60" r="49" fill="none" stroke="#fff" stroke-opacity=".75" stroke-width="1.3"/></svg></div></div>
+    <div class="ball-wrap"><div class="ball"><svg viewBox="0 0 120 120" role="img" aria-label="كرة قدم"><defs><radialGradient id="sphere" cx="34%" cy="27%" r="72%"><stop offset="0" stop-color="#fff"/><stop offset=".72" stop-color="#F2F4F5"/><stop offset="1" stop-color="#7187A7"/></radialGradient><clipPath id="ballclip"><circle cx="60" cy="60" r="49"/></clipPath></defs><circle cx="60" cy="60" r="51" fill="#4CA8FF" opacity=".18"/><g clip-path="url(#ballclip)"><circle cx="60" cy="60" r="49" fill="url(#sphere)"/><path d="m60 39 19 14-7 22H48l-7-22 19-14Z" fill="#0A1121"/><path d="m60 39-3-21 17-8 17 13-4 20 11 13 18-5 8 17-13 16-20-3-12-14M41 53 22 45 8 58l3 20 18 10 19-13m-7-22-13-9 1-19 18-8 10 11m7 47 1 20-17 13-18-9-1-18m35-20 18-4 13 11-3 21-18 10-14-10m-23-39-7 22 12 16" fill="none" stroke="#79C4EA" stroke-width="2"/><path d="M60 39 41 53l7 22h24l7-22L60 39Z" fill="#0A1121"/><path d="m60 39-3-21 17-8m-33 43-19-8m64-1 11 13m-30 38-1 20" fill="none" stroke="#F2F4F5" stroke-width="2"/></g><circle cx="60" cy="60" r="49" fill="none" stroke="#fff" stroke-opacity=".75" stroke-width="1.3"/></svg></div></div>
     <div class="sparks"><i class="spark"></i><i class="spark"></i><i class="spark"></i><i class="spark"></i></div>
   </section>
   <div class="intro-line">الدخول للملعب يبدأ بخطوة</div>
   <section class="register-card" id="register">
-    <div class="card-head"><div><div class="card-title">احجز مكانك في المنافسة</div><div class="card-sub">بيانات بسيطة — وخلي الباقي على الملعب</div></div><span class="step">التسجيل · ١ من ١</span></div>
     <form id="registerForm" novalidate>
       <div class="field"><label for="fullName">الاسم الثلاثي</label><div class="input-wrap"><svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M5 21v-2a7 7 0 0 1 14 0v2"/></svg><input id="fullName" name="fullName" autocomplete="name" placeholder="اكتب اسمك الثلاثي" maxlength="100" required></div><div class="field-error" id="nameError">اكتب الاسم الأول واسم الأب واسم العائلة.</div></div>
-      <div class="field"><label for="phone">رقم الهاتف</label><div class="input-wrap"><svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M11 18h2"/></svg><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="01xxxxxxxxx" maxlength="18" required></div><div class="hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 11v5m0-8h.01" stroke-linecap="round"/></svg>رقمك هيُستخدم للتواصل معاك بخصوص المسابقة فقط.</div><div class="field-error" id="phoneError">اكتب رقم هاتف صحيحًا، مثل 01012345678.</div></div>
+      <div class="field"><label for="phone">رقم الهاتف</label><div class="input-wrap"><svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M11 18h2"/></svg><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="01xxxxxxxxx" maxlength="18" required></div><div class="hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 11v5m0-8h.01" stroke-linecap="round"/></svg>تأكد إن رقمك عليه واتساب علشان نتواصل معاك.</div><div class="field-error" id="phoneError">اكتب رقم هاتف صحيحًا، مثل 01012345678.</div></div>
       <button class="submit" id="submitBtn" type="submit"><span>تأكيد التسجيل</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button>
       <div class="secure-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>بياناتك للتسجيل فقط، ومش هتظهر للمشاركين.</div>
     </form>
-    <div class="rules"><span class="rules-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z"/><path d="m9 12 2 2 4-4"/></svg></span><div><strong>العبها بروح رياضية</strong><p>التزامك بالتعليمات واحترام المنافسين جزء من التحدي.</p></div></div>
   </section>
-  <footer class="bottom"><div>صممت للمنافسة <span class="mini-ball">●</span> من أول لمسة لآخر صافرة</div><div><strong>مسابقة بيس VX</strong></div><button class="admin-link" id="adminLink" type="button">إدارة التسجيلات</button></footer>
+  <footer class="bottom"><strong>تطوير : احمد حسين</strong></footer>
 </main>
-<div class="goal-celebration" id="goalCelebration" aria-hidden="true"><div class="goal-scene"><div class="goal-light"></div><div class="goal-crowd"></div><div class="goal-ground"></div><div class="goal-frame"><div class="goal-net"></div></div><div class="shot-ball" aria-hidden="true"><svg viewBox="0 0 120 120" fill="none"><defs><radialGradient id="shotSphere" cx="32%" cy="25%" r="75%"><stop offset="0" stop-color="#fff"/><stop offset=".72" stop-color="#e7edf2"/><stop offset="1" stop-color="#728396"/></radialGradient></defs><circle cx="60" cy="60" r="50" fill="url(#shotSphere)" stroke="#f2f4f5" stroke-width="2"/><path d="m60 39 19 14-7 22H48l-7-22 19-14Z" fill="#101c2b"/><path d="m60 39-3-21 17-8 17 13-4 20 11 13 18-5 8 17-13 16-20-3-12-14M41 53 22 45 8 58l3 20 18 10 19-13m-7-22-13-9 1-19 18-8 10 11m7 47 1 20-17 13-18-9-1-18m35-20 18-4 13 11-3 21-18 10-14-10m-23-39-7 22 12 16" stroke="#9aa8b8" stroke-width="2"/></svg></div></div><div class="goal-caption"><h2 class="goal-title">جوووول!</h2><p class="goal-subtitle">تم التسجيل بنجاح</p><div class="gold-rule"></div></div></div><audio id="introAudio" src="./StartA.mp3" preload="auto" autoplay></audio><audio id="ambienceAudio" src="./audio/stadium-ambience.mp3" loop preload="none"></audio><audio id="goalAudio" src="./audio/goal-celebration.mp3" preload="none"></audio><div class="notice" id="notice" role="status" aria-live="polite"><strong id="noticeTitle"></strong><p id="noticeText"></p></div>
-<div class="modal-backdrop" id="adminModal" role="dialog" aria-modal="true" aria-labelledby="adminTitle">
-  <div class="modal"><h2 id="adminTitle">إدارة التسجيلات</h2><p>التصدير المحلي مخصص للتجربة فقط. بعد الربط، تنزيل كل المشاركين يتم مباشرة من Google Sheets، لأن بيانات الأجهزة المختلفة لا تُجمع في هذا القسم.</p><input id="adminPin" type="password" inputmode="numeric" autocomplete="off" placeholder="رمز الإدارة" aria-label="رمز الإدارة"><div class="modal-actions"><button class="btn-main" id="unlockAdmin" type="button">فتح الإدارة</button><button class="btn-ghost" id="closeAdmin" type="button">إغلاق</button></div><div class="export-list" id="exportList"></div><p class="footnote">التصدير هنا من المتصفح الحالي فقط. ملف Google Sheets هو السجل المركزي لجميع المشاركين.</p></div>
-</div>
+<div class="goal-celebration" id="goalCelebration" aria-hidden="true"><div class="goal-scene"><div class="goal-light"></div><div class="goal-crowd"></div><div class="goal-ground"></div><div class="goal-frame"><div class="goal-net"></div></div><div class="shot-ball" aria-hidden="true"><svg viewBox="0 0 120 120" fill="none"><defs><radialGradient id="shotSphere" cx="32%" cy="25%" r="75%"><stop offset="0" stop-color="#fff"/><stop offset=".72" stop-color="#e7edf2"/><stop offset="1" stop-color="#728396"/></radialGradient></defs><circle cx="60" cy="60" r="50" fill="url(#shotSphere)" stroke="#f2f4f5" stroke-width="2"/><path d="m60 39 19 14-7 22H48l-7-22 19-14Z" fill="#101c2b"/><path d="m60 39-3-21 17-8 17 13-4 20 11 13 18-5 8 17-13 16-20-3-12-14M41 53 22 45 8 58l3 20 18 10 19-13m-7-22-13-9 1-19 18-8 10 11m7 47 1 20-17 13-18-9-1-18m35-20 18-4 13 11-3 21-18 10-14-10m-23-39-7 22 12 16" stroke="#9aa8b8" stroke-width="2"/></svg></div></div><div class="goal-caption"><h2 class="goal-title">جوووول!</h2><p class="goal-subtitle">تم التسجيل بنجاح</p><div class="gold-rule"></div></div></div><audio id="introAudio" src="./StartA.mp3" preload="auto" autoplay playsinline></audio><audio id="goalAudio" src="./audio/goal-celebration.mp3" preload="auto" playsinline></audio><div class="notice" id="notice" role="status" aria-live="polite"><strong id="noticeTitle"></strong><p id="noticeText"></p></div>
 <script src="./config.js"></script>
 <script>
 (() => {
   const $ = (id) => document.getElementById(id);
-  const CONFIG = window.VX_CONFIG || {};
-  const STORAGE_KEY = "vx-pes-registrations-v1";
-  const ADMIN_PIN = String(CONFIG.adminPin || "4286");
-  const form = $("registerForm"), nameField = $("fullName"), phoneField = $("phone");
-  let audioCtx = null, soundOn = false, noticeTimer;
-  const introAudio = $("introAudio"), ambienceAudio = $("ambienceAudio"), goalAudio = $("goalAudio");
+  const form = $("registerForm");
+  const nameField = $("fullName");
+  const phoneField = $("phone");
+  const introAudio = $("introAudio");
+  const goalAudio = $("goalAudio");
   let introAudioStarted = false;
-  async function tryStartIntroAudio(){
-    if(introAudioStarted || !introAudio) return;
+  let introAudioPending = false;
+  let noticeTimer;
+
+  function clearIntroListeners() {
+    document.removeEventListener("pointerdown", startIntroFromGesture, true);
+    document.removeEventListener("touchstart", startIntroFromGesture, true);
+    document.removeEventListener("click", startIntroFromGesture, true);
+    document.removeEventListener("keydown", startIntroFromGesture, true);
+  }
+
+  function startIntroFromGesture() {
+    if (!introAudio || introAudioStarted || introAudioPending) return;
+    introAudioPending = true;
+    introAudio.volume = 1;
     try {
-      await introAudio.play();
-      introAudioStarted = true;
-      document.removeEventListener("pointerdown", tryStartIntroAudio);
-      document.removeEventListener("keydown", tryStartIntroAudio);
-      document.removeEventListener("touchstart", tryStartIntroAudio);
+      const result = introAudio.play();
+      if (result && typeof result.then === "function") {
+        result.then(() => {
+          introAudioStarted = true;
+          introAudioPending = false;
+          clearIntroListeners();
+        }).catch(() => {
+          introAudioPending = false;
+        });
+      } else {
+        introAudioStarted = true;
+        introAudioPending = false;
+        clearIntroListeners();
+      }
     } catch (error) {
-      // المتصفح قد يمنع الصوت المسموع التلقائي؛ أعد المحاولة عند أول تفاعل من الزائر.
+      introAudioPending = false;
     }
   }
-  document.addEventListener("pointerdown", tryStartIntroAudio, { passive: true });
-  document.addEventListener("touchstart", tryStartIntroAudio, { passive: true });
-  document.addEventListener("keydown", tryStartIntroAudio);
-  tryStartIntroAudio();
-  const arabicDigits = (s) => s.replace(/[٠-٩۰-۹]/g, c => "٠١٢٣٤٥٦٧٨٩".indexOf(c) > -1 ? String("٠١٢٣٤٥٦٧٨٩".indexOf(c)) : String("۰۱۲۳۴۵۶۷۸۹".indexOf(c)));
-  const cleanPhone = (s) => arabicDigits(s).replace(/[\s()+.-]/g,"");
-  function getRegs(){try{return JSON.parse(localStorage.getItem(STORAGE_KEY)||"[]")}catch{return []}}
-  function saveRegs(rows){localStorage.setItem(STORAGE_KEY,JSON.stringify(rows))}
-  function showNotice(title, message, error=false){const n=$("notice");$("noticeTitle").textContent=title;$("noticeText").textContent=message;n.classList.toggle("error",error);n.classList.add("show");clearTimeout(noticeTimer);noticeTimer=setTimeout(()=>n.classList.remove("show"),6500)}
-  function validName(v){return v.trim().split(/\s+/u).filter(Boolean).length>=3}
-  function validPhone(v){const n=cleanPhone(v);return /^(?:\+?20)?0?1[0125]\d{8}$/.test(n)||/^20?1[0125]\d{8}$/.test(n)||/^01[0125]\d{8}$/.test(n)}
-  function setInvalid(field,errorId,bad){field.classList.toggle("invalid",bad);$(errorId).classList.toggle("show",bad)}
-  function initAudio(){
-    const AC=window.AudioContext||window.webkitAudioContext;if(!AC)return false;
-    if(!audioCtx)audioCtx=new AC();if(audioCtx.state==="suspended")audioCtx.resume();
-    return true;
+
+  // Try autoplay on page open. If the browser blocks it, retry during the first tap/click.
+  startIntroFromGesture();
+  document.addEventListener("pointerdown", startIntroFromGesture, true);
+  document.addEventListener("touchstart", startIntroFromGesture, { capture: true, passive: true });
+  document.addEventListener("click", startIntroFromGesture, true);
+  document.addEventListener("keydown", startIntroFromGesture, true);
+
+  const arabicDigits = (s) => s.replace(/[٠-٩۰-۹]/g, c => {
+    const arabic = "٠١٢٣٤٥٦٧٨٩";
+    const persian = "۰۱۲۳۴۵۶۷۸۹";
+    const a = arabic.indexOf(c);
+    return String(a >= 0 ? a : persian.indexOf(c));
+  });
+  const cleanPhone = (s) => arabicDigits(s).replace(/[\s()+.-]/g, "");
+  function showNotice(title, message, error=false) {
+    const n = $("notice");
+    $("noticeTitle").textContent = title;
+    $("noticeText").textContent = message;
+    n.classList.toggle("error", error);
+    n.classList.add("show");
+    clearTimeout(noticeTimer);
+    noticeTimer = setTimeout(() => n.classList.remove("show"), 6500);
   }
-  function blip(freq=540,duration=.11){
-    if(!soundOn||!initAudio())return;
-    const o=audioCtx.createOscillator(),g=audioCtx.createGain();o.type="sine";o.frequency.setValueAtTime(freq,audioCtx.currentTime);o.frequency.exponentialRampToValueAtTime(freq*1.35,audioCtx.currentTime+duration);g.gain.setValueAtTime(.0001,audioCtx.currentTime);g.gain.exponentialRampToValueAtTime(.06,audioCtx.currentTime+.015);g.gain.exponentialRampToValueAtTime(.0001,audioCtx.currentTime+duration);o.connect(g);g.connect(audioCtx.destination);o.start();o.stop(audioCtx.currentTime+duration+.02)
+  function validName(value) {
+    return value.trim().split(/\s+/u).filter(Boolean).length >= 3;
   }
-  $("soundToggle").addEventListener("click",async()=>{soundOn=!soundOn;if(soundOn){if(!initAudio())soundOn=false;else{ambienceAudio.volume=.22;try{await ambienceAudio.play()}catch(err){soundOn=false}}}else{ambienceAudio.pause();ambienceAudio.currentTime=0} $("soundToggle").setAttribute("aria-pressed",String(soundOn));$("soundLabel").textContent=soundOn?"الصوت يعمل":"الصوت مغلق";if(soundOn)blip(460)});
-  document.querySelectorAll("button").forEach(b=>{if(!["soundToggle"].includes(b.id))b.addEventListener("pointerdown",()=>blip(420,.07),{passive:true})});
-  nameField.addEventListener("input",()=>setInvalid(nameField,"nameError",false));
-  phoneField.addEventListener("input",()=>setInvalid(phoneField,"phoneError",false));
-  async function sendRemote(record){
-    const response=await fetch("/api/register",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({fullName:record.fullName,phone:record.phone})});
-    let data={};try{data=await response.json()}catch{}
-    if(!response.ok||!data.ok){const err=new Error(data.message||"تعذر تأكيد التسجيل.");err.status=response.status;err.code=data.code;err.duplicate=Boolean(data.duplicate);throw err}
+  function validPhone(value) {
+    const n = cleanPhone(value);
+    return /^(?:\+?20)?0?1[0125]\d{8}$/.test(n) ||
+      /^20?1[0125]\d{8}$/.test(n) ||
+      /^01[0125]\d{8}$/.test(n);
+  }
+  function setInvalid(field, errorId, bad) {
+    field.classList.toggle("invalid", bad);
+    $(errorId).classList.toggle("show", bad);
+  }
+  nameField.addEventListener("input", () => setInvalid(nameField, "nameError", false));
+  phoneField.addEventListener("input", () => setInvalid(phoneField, "phoneError", false));
+
+  async function sendRemote(fullName, phone) {
+    const response = await fetch("/api/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ fullName, phone })
+    });
+    let data = {};
+    try { data = await response.json(); } catch (error) {}
+    if (!response.ok || !data.ok) {
+      const err = new Error(data.message || "تعذر تأكيد التسجيل.");
+      err.status = response.status;
+      err.code = data.code;
+      err.duplicate = Boolean(data.duplicate);
+      throw err;
+    }
     return data;
   }
-  function playGoalCelebration(){
-    const overlay=$("goalCelebration");overlay.classList.add("active");overlay.setAttribute("aria-hidden","false");
-    if(goalAudio){goalAudio.currentTime=0;goalAudio.volume=.95;goalAudio.play().catch(()=>{});}
-    if(navigator.vibrate)navigator.vibrate([35,40,80]);
-    return new Promise(resolve=>setTimeout(()=>{overlay.classList.remove("active");overlay.setAttribute("aria-hidden","true");if(goalAudio){goalAudio.pause();goalAudio.currentTime=0}resolve()},3700));
+
+  function playGoalCelebration() {
+    const overlay = $("goalCelebration");
+    overlay.classList.add("active");
+    overlay.setAttribute("aria-hidden", "false");
+    if (introAudio) {
+      introAudio.pause();
+      introAudio.currentTime = 0;
+    }
+    if (goalAudio) {
+      goalAudio.currentTime = 0;
+      goalAudio.volume = 1;
+      goalAudio.play().catch(() => {});
+    }
+    if (navigator.vibrate) navigator.vibrate([35, 40, 80]);
+    return new Promise(resolve => setTimeout(() => {
+      overlay.classList.remove("active");
+      overlay.setAttribute("aria-hidden", "true");
+      if (goalAudio) {
+        goalAudio.pause();
+        goalAudio.currentTime = 0;
+      }
+      resolve();
+    }, 3700));
   }
-  form.addEventListener("submit",async(e)=>{
-    e.preventDefault();
-    const fullName=nameField.value.trim().replace(/\s+/g," "), phone=cleanPhone(phoneField.value);
-    const nameOk=validName(fullName), phoneOk=validPhone(phone);
-    setInvalid(nameField,"nameError",!nameOk);setInvalid(phoneField,"phoneError",!phoneOk);
-    if(!nameOk||!phoneOk){(!nameOk?nameField:phoneField).focus();showNotice("راجع البيانات","محتاجين الاسم الثلاثي ورقم هاتف صحيح.",true);return}
-    const existing=getRegs();
-    if(existing.some(x=>cleanPhone(x.phone)===phone)){showNotice("أنت مسجل بالفعل","رقم الهاتف ده اتسجل قبل كده. استنى تواصل المنظم معاك.",true);return}
-    const record={id:"VX-"+Date.now().toString(36).toUpperCase(),fullName,phone,createdAt:new Date().toISOString(),status:"قيد المراجعة"};
-    $("submitBtn").disabled=true;$("submitBtn").querySelector("span").textContent="جارٍ تأكيد التسجيل…";
-    try{
-      const result=await sendRemote(record);
-      existing.push({...record,id:result.id||record.id});saveRegs(existing);form.reset();
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const fullName = nameField.value.trim().replace(/\s+/g, " ");
+    const phone = cleanPhone(phoneField.value);
+    const nameOk = validName(fullName);
+    const phoneOk = validPhone(phone);
+    setInvalid(nameField, "nameError", !nameOk);
+    setInvalid(phoneField, "phoneError", !phoneOk);
+    if (!nameOk || !phoneOk) {
+      (!nameOk ? nameField : phoneField).focus();
+      showNotice("راجع البيانات", "اكتب الاسم الثلاثي ورقم هاتف صحيحًا.", true);
+      return;
+    }
+
+    $("submitBtn").disabled = true;
+    $("submitBtn").querySelector("span").textContent = "جارٍ تأكيد التسجيل…";
+    try {
+      await sendRemote(fullName, phone);
+      form.reset();
       await playGoalCelebration();
-      showNotice("تم التسجيل بنجاح","تم حفظ بياناتك. لو احتاج المنظم أي تأكيد هيتواصل معاك على رقم الهاتف.");
-      $("shell").classList.add("kick");setTimeout(()=>$("shell").classList.remove("kick"),650);
-    }catch(err){
-      if(err.duplicate){showNotice("أنت مسجل بالفعل","رقم الهاتف ده موجود عندنا بالفعل. مش محتاج تسجل مرة تانية.",true)}
-      else if(err.code==="NOT_CONFIGURED"||err.status===503){showNotice("التسجيل لم يُفعّل بعد","الموقع محتاج ربط Google Sheets من إعدادات النشر قبل استقبال تسجيلات حقيقية.",true)}
-      else{showNotice("ما قدرناش نأكد التسجيل","حصلت مشكلة في إرسال البيانات. مفيش تسجيل جديد اتأكد؛ جرّب تاني بعد قليل.",true)}
-    }finally{$("submitBtn").disabled=false;$("submitBtn").querySelector("span").textContent="تأكيد التسجيل"}
+      showNotice("تم التسجيل بنجاح", "تم حفظ بياناتك. تأكد إن واتساب متاح على رقمك للتواصل معاك.");
+    } catch (error) {
+      if (error.duplicate) {
+        showNotice("أنت مسجل بالفعل", "رقم الهاتف ده مسجل قبل كده. مش محتاج تسجل مرة تانية.", true);
+      } else if (error.code === "NOT_CONFIGURED" || error.status === 503) {
+        showNotice("التسجيل غير جاهز", "خدمة التسجيل لم تكتمل إعداداتها بعد. حاول لاحقًا.", true);
+      } else {
+        showNotice("ما قدرناش نأكد التسجيل", "حصلت مشكلة في إرسال البيانات. حاول مرة تانية بعد قليل.", true);
+      }
+    } finally {
+      $("submitBtn").disabled = false;
+      $("submitBtn").querySelector("span").textContent = "تأكيد التسجيل";
+    }
   });
-  const modal=$("adminModal");
-  $("adminLink").addEventListener("click",()=>{modal.classList.add("open");$("adminPin").value="";$("exportList").innerHTML="";setTimeout(()=>$("adminPin").focus(),100)});
-  $("closeAdmin").addEventListener("click",()=>modal.classList.remove("open"));
-  modal.addEventListener("click",e=>{if(e.target===modal)modal.classList.remove("open")});
-  function downloadCsv(rows){
-    const header=["رقم التسجيل","الاسم الثلاثي","رقم الهاتف","وقت التسجيل","الحالة"];
-    const rowsText=rows.map(r=>[r.id,r.fullName,r.phone,new Date(r.createdAt).toLocaleString("ar-EG"),r.status]);
-    const csv="\ufeff"+[header,...rowsText].map(row=>row.map(v=>'"'+String(v??"").replace(/"/g,'""')+'"').join(",")).join("\r\n");
-    const blob=new Blob([csv],{type:"text/csv;charset=utf-8;"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="مسابقة-بيس-VX-التسجيلات.csv";document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url)
-  }
-  $("unlockAdmin").addEventListener("click",()=>{
-    if($("adminPin").value!==ADMIN_PIN){showNotice("رمز الإدارة غير صحيح","حاول مرة أخرى.",true);return}
-    const rows=getRegs(),list=$("exportList");list.innerHTML="";
-    const summary=document.createElement("div");summary.className="export-row";summary.innerHTML="<span>تسجيلات هذا الجهاز: <strong>"+rows.length+"</strong></span>";list.appendChild(summary);
-    const button=document.createElement("button");button.type="button";button.textContent="تنزيل ملف CSV";button.disabled=rows.length===0;button.addEventListener("click",()=>downloadCsv(rows));summary.appendChild(button);
-    if(rows.length===0){const empty=document.createElement("p");empty.className="footnote";empty.textContent="لا توجد تسجيلات تجريبية محلية؛ استخدم Google Sheets لتنزيل القائمة الأساسية.";list.appendChild(empty)}
-    else{const hint=document.createElement("p");hint.className="footnote";hint.textContent="الملف يفتح في Excel ويمكن تعديله يدويًا.";list.appendChild(hint)}
-    blip(700)
-  });
-  $("adminPin").addEventListener("keydown",e=>{if(e.key==="Enter")$("unlockAdmin").click()});
 })();
 </script>
 </body>
