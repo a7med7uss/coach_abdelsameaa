@@ -1,0 +1,1 @@
+Temporary live registration verification trigger. Remove after testing.
