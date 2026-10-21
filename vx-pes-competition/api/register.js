@@ -33,10 +33,13 @@ export default async function handler(req, res) {
         registrationRoute: "ready",
         googleAppsScript: healthy ? "reachable" : "unhealthy",
         upstreamStatus: healthResponse.status,
+        upstreamContentType: healthResponse.headers.get("content-type") || "unknown",
+        upstreamRedirected: healthResponse.redirected,
+        upstreamHost: safeHost(healthResponse.url),
         responseLooksLikeJson: Boolean(health),
         message: healthy
           ? "الاتصال بخدمة التسجيل جاهز. لم يُضف هذا الفحص تسجيلًا."
-          : "مسار الموقع يعمل، لكن رد Google Apps Script غير متوقع. تحقق من صلاحية النشر وآخر إصدار."
+          : "Google Apps Script رجّع ردًا غير متوقع بدل JSON. راجع إتاحة تطبيق الويب لأي شخص، وتأكد أن doGet في النسخة المنشورة يرجع JSON."
       });
     } catch (error) {
       console.error("Apps Script health request failed", error?.message || "unknown error");
