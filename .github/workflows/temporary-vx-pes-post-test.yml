@@ -1,0 +1,33 @@
+name: Temporary VX_Pes live POST test
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test-post:
+    if: github.event.head_commit.message == 'Run VX_Pes live POST test'
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Send the existing duplicate-test number
+        shell: bash
+        run: |
+          set -euo pipefail
+          payload='{"fullName":"اختبار VX_Pes تسجيل","phone":"01000000000"}'
+          response="$(curl --silent --show-error --max-time 25 \
+            -X POST 'https://vx-pes.vercel.app/api/register' \
+            -H 'Content-Type: application/json' \
+            --data "$payload" \
+            -w '\n__HTTP_STATUS__:%{http_code}')"
+          status="$(printf '%s' "$response" | sed -n 's/^__HTTP_STATUS__://p' | tail -1)"
+          body="$(printf '%s' "$response" | sed '/^__HTTP_STATUS__:/d')"
+          echo "HTTP status: $status"
+          echo "Response: $body"
+          if [[ "$status" == "409" ]] && echo "$body" | grep -q '"duplicate":true'; then
+            echo "PASS: the new front end reached the existing Apps Script and duplicate detection."
+          else
+            echo "::error title=VX_Pes POST test::Expected HTTP 409 duplicate response, got HTTP $status"
+            exit 1
+          fi
