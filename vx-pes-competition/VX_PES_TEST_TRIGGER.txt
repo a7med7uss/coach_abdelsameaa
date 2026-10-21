@@ -1,1 +1,1 @@
-Temporary trigger used to verify the standalone VX_Pes site against the shared Google Sheet. Remove after the test.
+Temporary trigger to capture POST response.
