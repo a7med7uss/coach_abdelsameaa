@@ -1,4 +1,4 @@
-name: Temporary VX_Pes integration verification
+name: Temporary VX_Pes registration diagnostics
 
 on:
   push:
@@ -11,25 +11,26 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 2
     steps:
-      - name: Submit a controlled test registration
+      - name: Inspect the full response and verify shared-sheet behavior
         shell: bash
         run: |
-          set -euo pipefail
+          set -u
           payload='{"fullName":"اختبار VX_Pes","phone":"01000000000"}'
           response="$(curl --silent --show-error --max-time 30 \
             -X POST 'https://vx-pes.vercel.app/api/register' \
             -H 'Content-Type: application/json' \
             --data "$payload" \
-            -w '\n__HTTP_STATUS__:%{http_code}')"
+            -w '\n__HTTP_STATUS__:%{http_code}')" || true
           status="$(printf '%s' "$response" | sed -n 's/^__HTTP_STATUS__://p' | tail -1)"
-          body="$(printf '%s' "$response" | sed '/^__HTTP_STATUS__:/d')"
-          echo "HTTP status: $status"
-          echo "Response: $body"
+          body="$(printf '%s' "$response" | sed '/^__HTTP_STATUS__:/d' | tr '\n' ' ' | cut -c1-900)"
+          if [ -z "$status" ]; then status="no-status"; fi
+          if [ -z "$body" ]; then body="empty"; fi
+          echo "::notice title=VX_Pes POST diagnostic::HTTP $status — $body"
           if [[ "$status" == "200" ]] && echo "$body" | grep -q '"ok":true'; then
-            echo "PASS: The registration was confirmed by the server."
+            echo "PASS: server confirmed the test registration. Verify/delete the test row."
           elif [[ "$status" == "409" ]] && echo "$body" | grep -q '"duplicate":true'; then
-            echo "PASS: The endpoint reached the shared sheet and correctly rejected the already-used test number."
+            echo "PASS: the shared sheet recognized the duplicate test number."
           else
-            echo "FAIL: Registration was neither confirmed nor identified as a duplicate."
+            echo "::error title=VX_Pes registration response::HTTP $status — $body"
             exit 1
           fi
