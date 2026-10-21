@@ -15,7 +15,7 @@ jobs:
         shell: bash
         run: |
           set -u
-          payload='{"fullName":"اختبار VX_Pes","phone":"01000000000"}'
+          payload='{"fullName":"اختبار VX_Pes تسجيل","phone":"01000000000"}'
           response="$(curl --silent --show-error --max-time 30 \
             -X POST 'https://vx-pes.vercel.app/api/register' \
             -H 'Content-Type: application/json' \
