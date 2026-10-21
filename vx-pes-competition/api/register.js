@@ -1,15 +1,66 @@
 // Vercel serverless endpoint: /api/register
 // Set GOOGLE_SCRIPT_URL in Vercel Project Settings > Environment Variables.
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
+  res.setHeader("Cache-Control", "no-store, max-age=0");
+  const endpoint = process.env.GOOGLE_SCRIPT_URL;
+
+  if (req.method === "GET") {
+    if (!endpoint || !/^https:\/\/script\.google\.com\/macros\/s\/[^/]+\/exec$/.test(endpoint)) {
+      return res.status(503).json({ ok: false, code: "NOT_CONFIGURED", message: "رابط التسجيل غير مضبوط." });
+    }
+    try {
+      const healthResponse = await fetch(endpoint, {
+        method: "GET",
+        redirect: "follow",
+        headers: { "Accept": "application/json" },
+        cache: "no-store"
+      });
+      const rawHealth = await healthResponse.text();
+      let health;
+      try { health = JSON.parse(rawHealth); } catch (error) { health = null; }
+      if (!healthResponse.ok || !health || health.ok !== true || health.service !== "مسابقة بيس VX") {
+        console.error("Apps Script health check failed", {
+          status: healthResponse.status,
+          contentType: healthResponse.headers.get("content-type") || "unknown",
+          redirected: healthResponse.redirected
+        });
+        return res.status(502).json({
+          ok: false,
+          code: "GOOGLE_SCRIPT_UNREACHABLE",
+          message: "الموقع لا يستطيع الوصول إلى خدمة Google Apps Script. راجع صلاحية أي شخص وآخر إصدار منشور."
+        });
+      }
+      return res.status(200).json({
+        ok: true,
+        service: "مسابقة بيس VX",
+        registrationRoute: "ready",
+        googleAppsScript: "reachable",
+        note: "فحص الاتصال لا يضيف تسجيلًا."
+      });
+    } catch (error) {
+      console.error("Apps Script health request failed", error?.message || "unknown error");
+      return res.status(502).json({
+        ok: false,
+        code: "GOOGLE_SCRIPT_NETWORK_ERROR",
+        message: "تعذر الاتصال بخدمة Google. افحص إعداد النشر ورابط السكربت."
+      });
+    }
+  }
+
   if (req.method !== "POST") {
-    res.setHeader("Allow", "POST");
+    res.setHeader("Allow", "GET, POST");
     return res.status(405).json({ ok: false, message: "طريقة الطلب غير مسموحة." });
   }
-  const endpoint = process.env.GOOGLE_SCRIPT_URL;
   if (!endpoint || !/^https:\/\/script\.google\.com\/macros\/s\/.+\/exec$/.test(endpoint)) {
     return res.status(503).json({ ok: false, code: "NOT_CONFIGURED", message: "لم يتم إعداد رابط Google Apps Script بعد." });
   }
-  const { fullName, phone } = req.body || {};
+  let body = req.body;
+  if (Buffer.isBuffer(body)) body = body.toString("utf8");
+  if (typeof body === "string") {
+    try { body = JSON.parse(body); }
+    catch (error) { return res.status(400).json({ ok: false, message: "بيانات الطلب غير مفهومة." }); }
+  }
+  const { fullName, phone } = body && typeof body === "object" ? body : {};
   const name = String(fullName || "").trim().replace(/\s+/g, " ");
   const normalizedPhone = normalizePhone(phone || "");
   if (name.split(/\s+/).filter(Boolean).length < 3) return res.status(400).json({ ok: false, message: "اكتب الاسم الثلاثي." });
